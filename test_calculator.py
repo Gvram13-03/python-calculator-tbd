@@ -1,4 +1,4 @@
-from calculator import add, subtract, multiply, divide
+from calculator import add, subtract, multiply, divide, power
 import pytest
 
 def test_add():
@@ -17,3 +17,8 @@ def test_divide():
     assert divide(6, 2) == 3
     with pytest.raises(ZeroDivisionError):
         divide(5, 0)
+
+def test_power():
+    assert power(2, 3) == 8
+    assert power(5, 0) == 1
+    assert power(2, -1) == 0.5
