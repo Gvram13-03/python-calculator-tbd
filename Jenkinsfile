@@ -11,14 +11,14 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
-                    python3 -m pip install --upgrade pip
-                    pip3 install -r requirements.txt
+                    python -m pip install --upgrade pip
+                    pip install -r requirements.txt
                 '''
             }
         }
         stage('Run Tests') {
             steps {
-                sh 'python3 -m pytest -v --junit-xml=test-results.xml'  // -v for verbose, JUnit for reports
+                sh 'python -m pytest -v --junit-xml=test-results.xml'  // -v for verbose, JUnit for reports
             }
             post {
                 always {
